@@ -2,11 +2,6 @@ set $mod Mod4
 set $term foot
 set $menu wofi --show drun
 
-setenv XDG_CURRENT_DESKTOP sway
-setenv XDG_SESSION_DESKTOP sway
-setenv MOZ_ENABLE_WAYLAND 1
-setenv QT_QPA_PLATFORM wayland
-
 font pango:Sans 10
 output * bg #120d1a solid_color
 

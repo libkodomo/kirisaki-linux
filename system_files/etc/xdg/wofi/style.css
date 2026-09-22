@@ -1,0 +1,28 @@
+window {
+    margin: 0;
+    border: 2px solid #b58cff;
+    background-color: #120d1a;
+    color: #eee7ff;
+    font-family: Sans;
+    font-size: 14px;
+}
+
+#input {
+    margin: 10px;
+    border: 1px solid #4d3c61;
+    background-color: #1d1429;
+    color: #eee7ff;
+}
+
+#outer-box {
+    padding: 8px;
+}
+
+#entry {
+    padding: 8px;
+}
+
+#entry:selected {
+    background-color: #b58cff;
+    color: #120d1a;
+}

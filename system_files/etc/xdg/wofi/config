@@ -1,0 +1,8 @@
+show=drun
+prompt=Launch
+allow_images=true
+width=520
+height=360
+location=center
+gtk_dark=true
+insensitive=true

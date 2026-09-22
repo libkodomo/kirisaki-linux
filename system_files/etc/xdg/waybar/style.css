@@ -1,0 +1,50 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Sans;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #120d1a;
+    color: #eee7ff;
+}
+
+#workspaces button {
+    padding: 0 9px;
+    color: #8f809f;
+    background: transparent;
+}
+
+#workspaces button.focused {
+    color: #120d1a;
+    background: #b58cff;
+}
+
+#workspaces button.urgent {
+    color: #fff0f5;
+    background: #e07a9a;
+}
+
+#mode, #window, #pulseaudio, #network, #battery, #clock, #tray {
+    margin: 5px 3px;
+    padding: 3px 9px;
+    background: #1d1429;
+}
+
+#mode {
+    color: #f0c6ff;
+}
+
+#pulseaudio.muted, #network.disconnected {
+    color: #a79bb8;
+}
+
+#battery.warning {
+    color: #e0b66d;
+}
+
+#battery.critical {
+    color: #e07a9a;
+}

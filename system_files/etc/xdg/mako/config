@@ -1,0 +1,12 @@
+font=Sans 10
+background-color=#1d1429
+text-color=#eee7ff
+border-color=#b58cff
+progress-color=over #30243d
+border-size=2
+border-radius=0
+padding=10
+margin=12
+default-timeout=5000
+width=360
+height=110

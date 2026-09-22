@@ -1,0 +1,90 @@
+set $mod Mod4
+set $term foot
+set $menu wofi --show drun
+
+setenv XDG_CURRENT_DESKTOP sway
+setenv XDG_SESSION_DESKTOP sway
+setenv MOZ_ENABLE_WAYLAND 1
+setenv QT_QPA_PLATFORM wayland
+
+font pango:Sans 10
+output * bg #120d1a solid_color
+
+gaps inner 8
+gaps outer 4
+smart_gaps on
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+client.focused          #b58cff #241832 #f4edff #b58cff #b58cff
+client.focused_inactive #4d3c61 #1d1429 #c5b8d6 #4d3c61 #4d3c61
+client.unfocused        #30243d #120d1a #9b8cab #30243d #30243d
+client.urgent            #e07a9a #3a1726 #fff0f5 #e07a9a #e07a9a
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Kirisaki Sway?' -b 'Exit' 'swaymsg exit'
+bindsym $mod+Shift+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+space floating toggle
+bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+r mode resize
+
+mode resize {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+bindsym Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+exec_always --no-startup-id waybar
+exec --no-startup-id mako
+exec --no-startup-id swayidle -w timeout 900 'swaylock -f -c 120d1a' timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f -c 120d1a'
+
+include /etc/sway/config.d/*

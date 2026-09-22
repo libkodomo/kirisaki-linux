@@ -3,7 +3,7 @@ set $term foot
 set $menu wofi --show drun
 
 font pango:Sans 10
-output * bg #120d1a solid_color
+output * bg /usr/share/backgrounds/kirisaki/kirisaki_bg_dark.png fill
 
 gaps inner 8
 gaps outer 4

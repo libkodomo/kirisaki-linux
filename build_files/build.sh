@@ -45,7 +45,8 @@ flatpak install --system --noninteractive flathub \
 	org.mozilla.firefox \
 	org.videolan.VLC \
 	org.libreoffice.LibreOffice \
-	org.gnome.Loupe
+	org.gnome.Loupe \
+	org.gnome.Nautilus
 
 mkdir -p /var/home/linuxbrew/.linuxbrew
 git clone --depth=1 https://github.com/Homebrew/brew /var/home/linuxbrew/.linuxbrew/Homebrew

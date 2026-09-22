@@ -16,6 +16,7 @@ cp -avf "/ctx/system_files"/. /
 dnf5 install -y \
 	brightnessctl \
 	flatpak \
+	fastfetch \
 	foot \
 	git \
 	grim \
@@ -40,6 +41,11 @@ dnf5 install -y \
 	tmux
 
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --system --noninteractive flathub \
+	org.mozilla.firefox \
+	org.videolan.VLC \
+	org.libreoffice.LibreOffice \
+	org.gnome.Loupe
 
 mkdir -p /var/home/linuxbrew/.linuxbrew
 git clone --depth=1 https://github.com/Homebrew/brew /var/home/linuxbrew/.linuxbrew/Homebrew

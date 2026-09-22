@@ -41,11 +41,11 @@ dnf5 install -y \
 
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-mkdir -p /home/linuxbrew/.linuxbrew
-git clone --depth=1 https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
-mkdir -p /home/linuxbrew/.linuxbrew/bin
-ln -sf ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew
-chmod -R a+rwX /home/linuxbrew/.linuxbrew
+mkdir -p /var/home/linuxbrew/.linuxbrew
+git clone --depth=1 https://github.com/Homebrew/brew /var/home/linuxbrew/.linuxbrew/Homebrew
+mkdir -p /var/home/linuxbrew/.linuxbrew/bin
+ln -sf ../Homebrew/bin/brew /var/home/linuxbrew/.linuxbrew/bin/brew
+chmod -R a+rwX /var/home/linuxbrew/.linuxbrew
 
 # Use a COPR Example:
 #

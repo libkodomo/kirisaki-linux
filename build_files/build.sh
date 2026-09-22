@@ -41,12 +41,31 @@ dnf5 install -y \
 	tmux
 
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --system --noninteractive flathub \
+
+install_flatpak_with_retry() {
+	local attempts="${1:-3}"
+	shift
+	local attempt
+	for attempt in $(seq 1 "$attempts"); do
+		if flatpak "$@"; then
+			return 0
+		fi
+		if [ "$attempt" -lt "$attempts" ]; then
+			echo "flatpak install failed (attempt $attempt/$attempts), retrying in 10s..." >&2
+			sleep 10
+		else
+			return 1
+		fi
+	done
+}
+
+install_flatpak_with_retry 3 install --system --noninteractive flathub \
 	org.mozilla.firefox \
 	org.videolan.VLC \
 	org.libreoffice.LibreOffice \
-	org.gnome.Loupe \
-	org.gnome.Nautilus
+	org.gnome.Loupe
+
+install_flatpak_with_retry 5 install --system --noninteractive flathub org.gnome.Nautilus
 
 mkdir -p /var/home/linuxbrew/.linuxbrew
 git clone --depth=1 https://github.com/Homebrew/brew /var/home/linuxbrew/.linuxbrew/Homebrew
